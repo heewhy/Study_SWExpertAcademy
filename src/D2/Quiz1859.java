@@ -1,22 +1,26 @@
 package D2;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class Quiz1859 {
 
-	public static void main(String[] args) throws FileNotFoundException{
+	public static void main(String[] args) throws Exception{
 		// 백만장자프로젝트
-		Scanner sc = new Scanner(new File("src/com/step2/input1859.txt"));
-		int T = sc.nextInt();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringBuilder sb = new StringBuilder();
+		StringTokenizer st;
+		
+		int T = Integer.parseInt(br.readLine());
 		
 		for(int tc=1; tc<=T;tc++) {
-			int size = sc.nextInt();
+			int size = Integer.parseInt(br.readLine());
 			int[] arr = new int[size];
 			
+			st = new StringTokenizer(br.readLine());
 			for(int i=0;i<arr.length;i++) {
-				arr[i] = sc.nextInt();
+				arr[i] = Integer.parseInt(st.nextToken());
 			}
 			
 //			for(int i : arr) {
@@ -54,10 +58,12 @@ public class Quiz1859 {
 
 			
 			
-			
-			System.out.println("#"+tc+" "+sum);
+			sb.append("#"+tc+" "+sum+"\n");
 		}
-
+		bw.write(sb.toString());
+		br.close();
+		bw.flush();
+		bw.close();
 	}
 
 }
